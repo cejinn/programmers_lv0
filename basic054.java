@@ -1,15 +1,23 @@
-// 구슬을 나누는 경우의 수
+// 개미 군단
 
 class Solution {
-    public int solution(int balls, int share) {
-        int up = re(balls);
-        int down = re(balls-share) * re(share);
-        return up / down;
-    }
+    public int solution(int hp) {
+        int cnt = 0;
+        
+        while(true) {
+           if(hp<5) {break;}
+        	hp = hp-5;
+        	cnt++;
+        }
+        
+        while(true) {
+            if(hp<3) {break;}
+        	hp = hp-3;
+        	cnt++;
+        }  
+    
+        cnt+=hp;
 
-    // 곱하는 재귀함수 사용
-    int re (int n) {
-        if(n==1) return 1;
-        return n *= re(n-1);
+        return cnt;
     }
 }
